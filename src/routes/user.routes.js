@@ -1,22 +1,14 @@
 import express from 'express';
+import * as controller from '../controllers/user.controller.js';
+import { info_log } from '../middlewares/log.js';
 
 const router = express.Router();
-router.get('/', (req, res) => {
-  res.json('Todos los usuarios');
-});
-router.post('/', (req, res) => {
-  console.log(req.body);
-  res.status(201).json('Usuario creado');
-});
+router.get('/', info_log, controller.getUsers);
 
-router.put('/:id', (req, res) => {
-  console.log(req.params.id);
-  res.json('Usuario actualizado');
-});
+router.post('/', controller.createUser);
 
-router.delete('/:id', (req, res) => {
-  console.log(req.params.id);
-  res.json('Usuario elminado');
-});
+router.put('/:id', controller.updateUser);
+
+router.delete('/:id', controller.deleteUser);
 
 export default router;
