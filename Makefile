@@ -4,5 +4,5 @@ build:
 data:
 	//Mock de la base de datos
 
-serve:
+server:
 	npm run dev

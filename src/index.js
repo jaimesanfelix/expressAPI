@@ -1,5 +1,7 @@
 import express from 'express';
 import morgan from 'morgan';
+import './cron/cron.date.js';
+import './cron/cron.tasks.js';
 import router from './routes/user.routes.js';
 
 const app = express();
@@ -13,5 +15,5 @@ app.listen(PORT, () => {
 });
 
 app.get('/', (req, res) => {
-  res.send('Hola Edem2');
+  res.send('Hola Edem');
 });
