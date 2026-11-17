@@ -1,3 +1,5 @@
+import User from '../models/user.model.js';
+
 export const getUsers = (req, res) => {
   res.json('Todos los usuarios');
 };
@@ -12,4 +14,8 @@ export const updateUser = (req, res) => {
 export const deleteUser = (req, res) => {
   console.log(req.params.id);
   res.json('Usuario elminado');
+};
+export const getUserProfile = async (req, res) => {
+  const user = await User.find({ email: req.user.email });
+  res.json(user);
 };
